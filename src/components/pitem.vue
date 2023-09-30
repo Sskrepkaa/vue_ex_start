@@ -7,7 +7,7 @@
                 <div>descr: {{post.body}}</div>
             </div>
             <div class="post_btn">
-                <button>Delete</button>
+                <uiButton @click="$emit('remove', post)">Delete</uiButton>
             </div>
         </div>
 </template>

@@ -1,14 +1,16 @@
 <script>
 import Pform from "@/components/pform.vue";
 import Plist from "@/components/plist.vue";
+import UiButton from "./components/UI/uiButton.vue";
 //import pform from "./components/pform.vue";
 
 
 export default {
 
   components: {
-    Plist, Pform
-  },
+    Plist, Pform,
+    UiButton
+},
 
   data() {
     return {
@@ -27,7 +29,10 @@ export default {
   createP(post) {
     console.log(post);
     this.posts.push(post);
-  }
+  },
+  removeP(post) {
+    this.posts = this.posts.filter(p => p.id !== post.id);
+  },
   }
 }
 </script>
@@ -35,7 +40,7 @@ export default {
 <template>
     <div>
       <div>
-        <button @click="addLike">Like</button>
+        <UiButton @click="addLike">Like</UiButton>
       </div>
       <div>
         count likes: {{likes}}
@@ -48,7 +53,7 @@ export default {
     />
     <Plist 
       :posts="posts"
-      
+      @remove="removeP"
     />
   </div>
 </template>

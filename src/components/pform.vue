@@ -3,31 +3,34 @@
     <form @submit.prevent action="" style="margin-bottom: 25px;">
       <h2>Add post</h2>
 
-      <input 
-        v-bind:value="post.titel" 
-        @input="post.titel = $event.target.value" 
-        class="input" 
+      <uiiInput 
+        v-model="post.name" 
+         
         type="text" 
-        placeholder="name">
+        placeholder="name"/>
 
-//v-model = vbind + input
-      <input 
+<!--[ v-model = vbind + input ]-->
+      <uiiInput 
         v-model="post.body"    
-        class="input" 
+        
         type="text" 
-        placeholder="body">
+        placeholder="body"/>
 
-      <button class="btn" @click="createP">Add</button>
+      <ui-Button class="btn" @click="createP">Add</ui-Button>
     </form>
   </div>  
 </template>
 
 <script>
+//import uiButton from "@/components/UI/uiButton.vue"
 export default {
+  components: {
+    
+  },
     data() {
         return {
             post: {
-                titel: "",
+                name: "",
                 body: ""
             }
         }
@@ -37,7 +40,7 @@ export default {
             this.post.id = Date.now();
             this.$emit('create', this.post)
             this.post = {
-                titel: "",
+                name: "",
                 body: ""
             }
         }
@@ -46,15 +49,9 @@ export default {
 </script>
 
 <style scoped>
-    .input {
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  padding: 15px;
-}
-
+    
 .btn {
     width: 35%;
 }
+
 </style>
