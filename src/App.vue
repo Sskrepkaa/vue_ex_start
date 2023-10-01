@@ -20,6 +20,7 @@ export default {
         {id:2, name: 'qwe2', body: 'lkjhgfdsa'},
         {id:3, name: 'qwe3', body: 'mnbvcx'},
       ],
+      dialogVisible: false,
     }
   },
   methods: {
@@ -48,9 +49,12 @@ export default {
     </div>
   
   <div>
-    <Pform
+    <uiDialog v-model:show="dialogVisible">
+      <Pform
       @create="createP"
     />
+    </uiDialog>
+    
     <Plist 
       :posts="posts"
       @remove="removeP"
