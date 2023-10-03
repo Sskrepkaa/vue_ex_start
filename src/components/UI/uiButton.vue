@@ -1,7 +1,7 @@
 
 
 <template>
-    <button >
+    <button class="btn">
         <slot>
 
         </slot>
@@ -17,5 +17,10 @@ export default {
 </script>
 
 <style scoped>
-    
+    .btn {
+        padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+    }
 </style>
