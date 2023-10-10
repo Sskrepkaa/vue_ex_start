@@ -4,7 +4,7 @@
       <h2>Add post</h2>
 
       <uiiInput 
-        v-model="post.name" 
+        v-model="post.title" 
          
         type="text" 
         placeholder="name"/>
@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             post: {
-                name: "",
+                title: "",
                 body: ""
             }
         }
@@ -40,7 +40,7 @@ export default {
             this.post.id = Date.now();
             this.$emit('create', this.post)
             this.post = {
-                name: "",
+                title: "",
                 body: ""
             }
         }

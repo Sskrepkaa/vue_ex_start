@@ -10,6 +10,10 @@
 
 <div>
   <h1>Post List:</h1>
+  <uiiInput
+    v-model="searchQuery"
+    aria-placeholder="Search..."
+  />
   <div class="appBtn">
     <UiButton @click="dialogVisible=true">Create post</UiButton>
     <uiSelect
@@ -26,7 +30,7 @@
 
   <h2 class="load" v-if="isLoad">Loading...</h2>
   <Plist 
-    :posts="posts"
+    :posts="sortedAndSearchedPost"
     @remove="removeP"
     v-else
   />
@@ -56,9 +60,10 @@ export default {
       ],
       dialogVisible: false,
       isLoad: false,
-      selectedSort: '',
+      searchQuery: '',
+      selectedSort: 'title',
       sortOptions: [
-        {value: 'titel', name: 'by name'},
+        {value: 'title', name: 'by name'},
         {value: 'body', name: 'by desc'},
       ]
     }
@@ -97,6 +102,32 @@ export default {
   
 
   },
+
+  computed: {
+    sortedPosts() {
+      return [...this.posts].sort((post1,post2)=> {
+          return post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])
+        }
+      )
+    },
+    sortedAndSearchedPost() {
+      return this.sortedPosts.filter(post => post.title.toLowerCase().includes(this.searchQuery.toLowerCase()))
+    }
+  },
+  watch: {
+    // **posts will rewrite with watch method**
+    // selectedSort(newV) {
+    //   this.posts.sort((post1,post2)=> {
+    //     return post1[newV]?.localeCompare(post2[this.selectedSort])
+    //     }
+    //   )
+
+    // },
+    dialogVisible(newV) {
+      console.log(newV);
+    }
+  },
+
 
   mounted() {
     this.fetchPosts();

@@ -3,7 +3,7 @@
 <template>
         <div class="post">
             <div>
-                <div>name: {{post.name}}</div>
+                <div>name: {{post.title}}</div>
                 <div>descr: {{post.body}}</div>
             </div>
             <div class="post_btn">
