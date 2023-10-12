@@ -2,7 +2,8 @@
     <div class="navbar">
         <div @click="$router.push('/')" >Vue3</div>
         <div class="nav_btns">
-            <uiButton @click="$router.push('/posts')" >Posts</uiButton>
+            <uiButton @click="$router.push('/store')" >Posts with store</uiButton>
+            <uiButton style="margin-left: 10px;" @click="$router.push('/posts')" >Posts</uiButton>
         </div>
     </div>
 </template>

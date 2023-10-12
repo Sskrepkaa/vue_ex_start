@@ -3,10 +3,12 @@
 <template>
         <div class="post">
             <div>
+                <div>id: {{post.id}}</div>
                 <div>name: {{post.title}}</div>
                 <div>descr: {{post.body}}</div>
             </div>
             <div class="post_btn">
+                <uiButton @click="this.$router.push(`/posts/${post.id}`)">Open</uiButton>
                 <uiButton @click="$emit('remove', post)">Delete</uiButton>
             </div>
         </div>
@@ -32,5 +34,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    }
+    .post_btn {
+        display: flex;
+        margin-left: 10px;
     }
 </style>

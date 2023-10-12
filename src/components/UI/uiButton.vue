@@ -1,5 +1,3 @@
-
-
 <template>
     <button class="btn">
         <slot>
@@ -9,8 +7,6 @@
 </template>
 
 <script>
-
-
 export default {
     name: 'uiButton'
 }

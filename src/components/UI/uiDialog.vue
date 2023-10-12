@@ -7,21 +7,11 @@
 </template>
 
 <script>
-
+import toggleMixin from "@/mixins/toggleMixin.js"
 
 export default {
     name: 'uiDialog',
-    props: {
-        show: {
-            type: Boolean,
-            default: false
-        }
-    },
-    methods: {
-        close_dialog() {
-            this.$emit('update:show', false);
-        },
-    }
+    mixins: [toggleMixin]
 }
 </script>
 

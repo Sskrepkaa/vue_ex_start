@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainCard from '../pages/MainCard.vue'
 import PostPage from '@/pages/PostPage.vue'
+import PostIdPage from '@/pages/PostIdPage.vue'
+import PostPageStore from '@/pages/PostPageStore.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +14,14 @@ const router = createRouter({
     {
       path: '/posts',
       component: PostPage
+    },
+    {
+      path: '/posts/:id',
+      component: PostIdPage
+    },
+    {
+      path: '/store',
+      component: PostPageStore
     }
     // {
     //   path: '/about',
